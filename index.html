@@ -1,476 +1,165 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SÂN ĐẤU — Xưởng may đồ thể thao thiết kế riêng</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Be+Vi…;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#101A3D;
-    --navy-2:#182452;
-    --orange:orange;
-    --orange-dark:#D6531A;
-    --ink:#141B2E;
-    --paper:#F5F6FA;
-    --line:#E4E6EF;
-    --muted:#7B8194;
-    --radius:8px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Be Vietnam Pro',sans-serif; background:var(--paper); color:var(--ink);}
-  h1,h2,h3,.display{font-family:'Anton',sans-serif; text-transform:uppercase; font-weight:400; letter-spacing:0.01em;}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  ul{list-style:none;}
-  .wrap{max-width:1280px; margin:0 auto; padding:0 28px;}
-  ::selection{background:var(--orange); color:#fff;}
-
-  
-  .topbar{background:var(--navy-2); color:#c7cbe6; font-size:12.5px;}
-  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; padding:8px 28px;}
-  .topbar .contact{display:flex; gap:22px;}
-
-  header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:200;}
-  .header-row{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; gap:24px;}
-  .logo{display:flex; align-items:center; gap:10px; font-family:'Anton'; font-size:22px; color:var(--navy);}
-  .logo .mark{
-    width:38px; height:38px; border-radius:8px;
-    background:var(--orange); color:#fff;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Anton'; font-size:18px;
-  }
-  .search-bar{
-    flex:1; max-width:460px; display:flex; align-items:center;
-    background:var(--paper); border:1px solid var(--line); border-radius:999px;
-    padding:9px 8px 9px 18px;
-  }
-  .search-bar input{border:none; background:none; outline:none; flex:1; font-size:13.5px; font-family:inherit;}
-  .search-bar button{
-    background:var(--orange); color:#fff; border:none; border-radius:999px;
-    width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer;
-  }
-  .header-actions{display:flex; align-items:center; gap:22px; font-size:12.5px; color:var(--navy);}
-  .header-actions .item{display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer;}
-  .header-actions .icon{font-size:19px;}
-  .cart-count{
-    background:var(--orange); color:#fff; font-size:10px; font-weight:700;
-    border-radius:999px; width:16px; height:16px; display:flex; align-items:center; justify-content:center;
-    position:relative; top:-14px; left:10px;
-  }
-
-  .mainnav{background:var(--navy);}
-  .mainnav ul{display:flex; align-items:stretch; max-width:1280px; margin:0 auto; padding:0 28px; flex-wrap:wrap;}
-  .mainnav li{position:relative;}
-  .mainnav a.nav-link{
-    display:flex; align-items:center; gap:6px;
-    padding:14px 18px; font-size:13px; font-weight:600; color:#dfe2f2;
-    letter-spacing:0.02em; white-space:nowrap;
-    border-right:1px solid rgba(255,255,255,0.08);
-    transition:background .15s, color .15s;
-  }
-  .mainnav li:first-child a.nav-link{background:var(--orange); color:#fff;}
-  .mainnav a.nav-link:hover{background:var(--navy-2); color:#fff;}
-  .mainnav .caret{font-size:9px; opacity:0.6;}
-  .dropdown{
-    position:absolute; top:100%; left:0; min-width:220px;
-    background:#fff; border:1px solid var(--line); border-top:3px solid var(--orange);
-    box-shadow:0 18px 34px rgba(16,26,61,0.16);
-    opacity:0; visibility:hidden; transform:translateY(6px);
-    transition:opacity .18s, transform .18s, visibility .18s;
-    z-index:50; border-radius:0 0 6px 6px; overflow:hidden;
-  }
-  .mainnav li:hover .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
-  .dropdown a{display:block; padding:11px 18px; font-size:13px; color:var(--ink); border-bottom:1px solid var(--line);}
-  .dropdown a:hover{background:var(--paper); color:var(--orange-dark); padding-left:22px;}
-
-  /* ===== Hero banner ===== */
-  .hero{
-    background:linear-gradient(120deg,var(--navy) 55%, var(--navy-2));
-    color:#fff; padding:52px 0; position:relative; overflow:hidden;
-  }
-  .hero .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;}
-  .hero .eyebrow{
-    display:inline-block; background:var(--orange); color:#fff; font-size:11.5px; font-weight:700;
-    padding:6px 12px; border-radius:999px; letter-spacing:0.06em; margin-bottom:16px;
-  }
-  .hero h1{font-size:clamp(30px,4vw,46px); line-height:1.08; margin-bottom:16px;}
-  .hero h1 span{color:var(--orange);}
-  .hero p{font-size:14.5px; color:#c7cbe6; max-width:420px; line-height:1.65; margin-bottom:26px;}
-  .hero-ctas{display:flex; gap:12px;}
-  .btn-orange{
-    background:var(--orange); color:#fff; padding:13px 26px; border-radius:6px;
-    font-weight:700; font-size:13.5px; transition:background .2s;
-  }
-  .btn-orange:hover{background:var(--orange-dark);}
-  .btn-outline{
-    border:1px solid rgba(255,255,255,0.35); color:#fff; padding:13px 24px; border-radius:6px;
-    font-weight:600; font-size:13.5px;
-  }
-  .hero-visual{display:flex; justify-content:center; gap:10px; position:relative;}
-  .hero-jersey{width:130px;}
-  .hero-jersey.mid{width:150px; margin-top:-14px;}
-
-  
-  .section-title{
-    display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:12px;
-  }
-.section-title h2{font-size:24px; color:var(--navy); display:flex; align-items:center; gap:10px;}
-  .section-title h2 .bar{width:6px; height:24px; background:var(--orange); border-radius:2px; display:inline-block;}
-  .section-title .see-all{font-size:12.5px; font-weight:700; color:var(--orange-dark); display:flex; align-items:center; gap:4px;}
-  section{padding:46px 0;}
-
-  .tab-switch{display:flex; gap:10px; margin-bottom:26px; flex-wrap:wrap;}
-  .tab-switch button{
-    font-family:inherit; font-size:13px; font-weight:600; padding:9px 20px;
-    border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--navy);
-    cursor:pointer; transition:all .15s;
-  }
-  .tab-switch button.active{background:var(--orange); border-color:var(--orange); color:#fff;}
-  .tab-switch button:hover:not(.active){border-color:var(--orange);}
-
-  .products-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-  .product-card{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    overflow:hidden; transition:box-shadow .2s, transform .2s;
-  }
-  .product-card:hover{box-shadow:0 16px 30px rgba(16,26,61,0.1); transform:translateY(-4px);}
-  .product-thumb{
-    position:relative; height:220px; background:#fafafc;
-    display:flex; align-items:center; justify-content:center; gap:6px; padding:14px;
-    border-bottom:1px solid var(--line);
-  }
-  .product-thumb .code{
-    position:absolute; bottom:8px; left:8px; background:var(--navy); color:#fff;
-    font-family:'JetBrains Mono'; font-size:10px; font-weight:700; padding:3px 8px; border-radius:3px;
-  }
-  .product-thumb .brand{
-    position:absolute; top:8px; left:8px; display:flex; align-items:center; gap:5px;
-    font-size:9px; color:var(--muted); font-weight:700;
-  }
-  .product-thumb .brand .dot{width:14px; height:14px; border-radius:50%; background:var(--orange);}
-  .product-info{padding:14px 16px 18px;}
-  .product-info .p-cat{font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:5px; font-weight:600;}
-  .product-info h3{
-    font-family:'Be Vietnam Pro'; text-transform:none; font-weight:600; font-size:14px;
-    line-height:1.35; margin-bottom:10px; min-height:38px; color:var(--ink);
-  }
-  .price-row{display:flex; align-items:baseline; gap:8px;}
-  .price-old{font-size:12px; color:#b2b6c4; text-decoration:line-through;}
-  .price-new{font-family:'JetBrains Mono'; font-weight:700; font-size:15.5px; color:var(--orange-dark);}
-
-  .jkit{display:flex; align-items:flex-end; gap:4px;}
-  .jkit svg{height:150px;}
-
-
-  .promo-strip{background:var(--navy); color:#fff;}
-  .promo-strip .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:30px 28px;}
-.promo-item{display:flex; align-items:center; gap:14px;}
-  .promo-item .ic{font-size:26px;}
-  .promo-item h4{font-family:'Be Vietnam Pro'; text-transform:none; font-weight:700; font-size:14px; margin-bottom:3px;}
-  .promo-item p{font-size:12px; color:#b7bcd8;}
-
-  /* ===== Footer ===== */
-  footer{background:#0C1330; color:#9BA0BE; padding:50px 0 24px; font-size:13px;}
-  .footer-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:34px; margin-bottom:34px;}
-  .footer-grid h4{color:#fff; font-family:'Be Vietnam Pro'; text-transform:none; font-weight:700; font-size:13.5px; margin-bottom:14px;}
-  .footer-grid li{margin-bottom:9px;}
-  .footer-grid a:hover{color:var(--orange);}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px;}
-
-  /* ===== Floating contact ===== */
-  .floating{position:fixed; left:18px; bottom:20px; display:flex; flex-direction:column; gap:10px; z-index:300;}
-  .floating a{
-    width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    color:#fff; font-size:19px; box-shadow:0 8px 18px rgba(0,0,0,0.2);
-  }
-  .floating .fb{background:#1877F2;}
-  .floating .zalo{background:#0068FF;}
-  .floating .phone{background:var(--orange); animation:ring 1.6s infinite;}
-  @keyframes ring{0%,100%{transform:scale(1);} 50%{transform:scale(1.08);}}
-
-  @media (max-width:960px){
-    .header-actions span.label{display:none;}
-    .search-bar{max-width:220px;}
-    .hero .wrap{grid-template-columns:1fr;}
-    .hero-visual{margin-top:20px;}
-    .products-grid{grid-template-columns:repeat(2,1fr);}
-    .promo-strip .wrap{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:520px){
-    .products-grid{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr;}
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Khảo sát sinh viên</title>
 </head>
+
 <body>
 
-<div class="topbar">
-  <div class="wrap">
-    <div>Shop bán quần áo thể thao — nhận thiết kế logo, in tên số </div>
-    <div class="contact">
-      <span>📞 0123 456 789</span>
-      <span>✉️ hotro@sandau.vn</span>
-    </div>
-  </div>
-</div>
+<table border="1" width="700" align="center" cellspacing="0">
+<body bgcolor="lavender"></body>
+    <!-- Tiêu đề -->
+    <tr bgcolor="lightblue">
+        <td colspan="2" align="center">
+            <h2>Khảo sát sinh viên</h2>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
 
-<header>
-  <div class="header-row wrap" style="padding-left:0; padding-right:0;">
-    <div class="logo"><span class="mark">SP</span>Áo ĐẤU</div>
-    <div class="search-bar">
-      <input type="text" placeholder="Tìm áo bóng đá, bóng chuyền, cầu lông...">
-      <button>🔍</button>
-    </div>
-    <div class="header-actions">
-      <div class="item"><span class="icon">👤</span><span class="label">Tài khoản</span></div>
-      <div class="item"><span class="icon">♡</span><span class="label">Yêu thích</span></div>
-      <div class="item"><span class="icon">🛒</span><span class="label">Giỏ hàng<span class="cart-count">3</span></span></div>
-    </div>
-  </div>
-</header>
-<nav class="mainnav">
-  <ul>
-    <li><a class="nav-link" href="#">HOME</a></li>
-    <li>
-      <a class="nav-link" href="#san-pham">ÁO BÓNG ĐÁ <span class="caret">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Áo đấu CLB thiết kế riêng</a>
-        <a href="#">Áo đấu tự chọn mẫu có sẵn</a>
-        <a href="#">Quần áo thủ môn</a>
-        <a href="#">Bộ đồng phục sân 5, sân 7</a>
-      </div>
-    </li>
-    <li>
-      <a class="nav-link" href="#vot">ÁO PICKLEBALL <span class="caret">▾</span></a>
-      <div class="dropdown">
-        <a href="#">Áo CLB Pickleball</a>
-        <a href="#">Váy Pickleball nữ</a>
-      </div>
-    </li>
-    <li><a class="nav-link" href="#">ÁO ĐIỀN KINH<span class="caret">▾</span></a></li>
-    <li><a class="nav-link" href="#vot">ÁO CẦU LÔNG <span class="caret">▾</span></a></li>
-    <li><a class="nav-link" href="#san-pham">ÁO BÓNG CHUYỀN</a></li>
-    <li><a class="nav-link" href="#">MÔN KHÁC <span class="caret">▾</span></a></li>
-  </ul>
-</nav>
+            <fieldset>
+                <legend>Thông tin cá nhân</legend>
 
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">NHẬN THIẾT KẾ RIÊNG THEO YÊU CẦU</span>
-      <h1>Đồng phục thi đấu<br>in tên, số <span>theo yêu cầu</span></h1>
-      <p>Hơn 500 mẫu áo bóng đá, bóng chuyền, cầu lông, pickleball có sẵn. Gửi ý tưởng — nhận bản thiết kế trong 24 giờ, không giới hạn số lần chỉnh sửa.</p>
-      <div class="hero-ctas">
-        <a href="#san-pham" class="btn-orange">Xem mẫu áo →</a>
-        
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLVr9e1hJIUt6wvfBE7SLI4GW-AcIMLSh1noiMEce3xzsryNTUX0xUSMYJ&s=10" alt="shop thể thao">
-    </div>
-  </div>
-</section>
+                <table width="100%">
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td>
+                            <input type="text" size="35">
+                        </td>
+                    </tr>
 
-<section id="san-pham" class="wrap">
-  <div class="section-title">
-    <h2><span class="bar"></span>Áo bóng đá </h2>
-    <a href="#" class="see-all">Xem tất cả →</a>
-  </div>
-  <div class="products-grid">
-<div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>Áo ĐẤU</div>
-        <div class="code">V3204</div>
-        <div class="jkit">
-          <img src="https://sumstore.vn/wp-content/uploads/2025/12/vietnam-do.jpg" alt="áo đấu việt nam">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Áo bóng đá</div>
-        <h3>Mẫu quần áo bóng đá VIỆT NAM</h3>
-        <div class="price-row"><span class="price-old">240.000đ</span><span class="price-new">159.000đ</span></div>
-      </div>
-    </div>
+                    <tr>
+                        <td>Mã SV:</td>
+                        <td>
+                            <input type="text" size="25">
+                        </td>
+                    </tr>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">V1477</div>
-        <div class="jkit">
-          <img src="https://vinsport.vn/my_uploads/2026/07/Bo-quan-ao-bong-da-Tay-Ban-Nha-2-sao-trang-san-khach-1-595x595.jpg" alt="Mẫu áo V3204">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Áo bóng đá</div>
-        <h3>Mẫu áo bóng đá SPAIN</h3>
-        <div class="price-row"><span class="price-old">240.000đ</span><span class="price-new">159.000đ</span></div>
-      </div>
-    </div>
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="email" size="35">
+                        </td>
+                    </tr>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">V3332</div>
-        <div class="jkit">
-          <img src="https://vinsport.vn/my_uploads/2024/09/Bo-quan-ao-bong-da-Barcelona-home-mua-2024-2025-Barca-24-25-san-nha-mau-xanh-do-khong-chu-3.jpg" atl="áo barcalona">
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Áo bóng đá</div>
-        <h3>Mẫu áo bóng đá CLB BARCALONA</h3>
-        <div class="price-row"><span class="price-old">240.000đ</span><span class="price-new">159.000đ</span></div>
-      </div>
-    </div>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>
+                            <input type="text" size="25">
+                        </td>
+                    </tr>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">V3500</div>
-        <div class="jkit">
-          <img src="https://i.ebayimg.com/images/g/SnYAAeSw8fBqaFev/s-l1600.webp" atl="áo real madrid">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Áo bóng đá</div>
-        <h3>Mẫu áo bóng đá REAL MADRID</h3>
-        <div class="price-row"><span class="price-old">240.000đ</span><span class="price-new">159.000đ</span></div>
-      </div>
-    </div>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td>
+                            <input type="date">
+                        </td>
+                    </tr>
 
-  </div>
-</section>
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td>
+                            <input type="radio" name="gt"> Nam
+                            <input type="radio" name="gt"> Nữ
+                        </td>
+                    </tr>
 
-<section id="vot" class="wrap">
-  <div class="section-title">
-    <h2><span class="bar"></span>Môn thể thao dùng vợt</h2>
-    <a href="#" class="see-all">Xem tất cả →</a>
-  </div>
-  <div class="tab-switch">
-    <button class="active">Áo Pickleball</button>
-    <button>Áo Cầu Lông</button>
-    <button>ÁO ĐIỀN KINH</button>
-  </div>
-  <div class="products-grid">
+                    <tr>
+                        <td>Sở thích:</td>
+                        <td>
+                            <input type="checkbox"> Đọc sách
+                            <input type="checkbox"> Chơi game
+                            <input type="checkbox" > Du lịch
+                            <input type="checkbox" > Khác
+                        </td>
+                    </tr>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">P1102</div>
-        <div class="jkit">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2CZ9-dUluHDZNn2OEANuZJFfi8QZP7_seVQvTjyrfcASFG5kzf6NhfpgT&s=10" >
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Pickleball</div>
-<h3>Áo CLB Pickleball thiết kế </h3>
-        <div class="price-row"><span class="price-old">220.000đ</span><span class="price-new">149.000đ</span></div>
-      </div>
-    </div>
+                    <tr>
+                        <td>Mật khẩu:</td>
+                        <td>
+                            <input type="password" size="25">
+                        </td>
+                    </tr>
+                </table>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">P1103</div>
-        <div class="jkit">
-          <img src="https://bizweb.dktcdn.net/100/160/265/files/quan-ao-dien-kinh-duike-3bdb8c5d-6271-4b96-815e-6e60f8901aa9.png?v=1490924652304" >
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Điền kinh</div>
-        <h3>Áo Điền kinh </h3> 
-        <div class="price-row"><span class="price-old">220.000đ</span><span class="price-new">149.000đ</span></div>
-      </div>
-    </div>
+            </fieldset>
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">P1104</div>
-        <div class="jkit">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVsthskA8YfhK5pk0KE5khGj6Vkj1KOOUWVaP23NXtldu0E7SQBjJVMxfa&s=10">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Pickleball</div>
-        <h3>Áo Pickleball thiết sang trọng  </h3>
-        <div class="price-row"><span class="price-old">220.000đ</span><span class="price-new">149.000đ</span></div>
-      </div>
-    </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
 
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="brand"><span class="dot"></span>ÁO ĐẤU</div>
-        <div class="code">P1105</div>
-        <div class="jkit">
-          <img src="https://bizweb.dktcdn.net/thumb/large/100/477/298/products/1981-1.jpg?v=1759129418070">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="p-cat">Điền kinh</div>
-        <h3>Áo Điền kinh thoáng mát thoải gà mái luôn </h3>
-        <div class="price-row"><span class="price-old">220.000đ</span><span class="price-new">149.000đ</span></div>
-      </div>
-    </div>
+            <fieldset>
+                <legend>Sinh viên</legend>
 
-  </div>
-</section>
+                <table width="100%">
 
-<div class="promo-strip">
-  <div class="wrap">
-    <div class="promo-item"><span class="ic">🎨</span><div><h4>Thiết kế miễn phí</h4><p>Theo yêu cầu, chỉnh sửa FREE</p></div></div>
-    <div class="promo-item"><span class="ic">🚚</span><div><h4>Giao hàng toàn quốc</h4><p>3–5 ngày, kiểm tra hàng trước khi nhận</p></div></div>
-    <div class="promo-item"><span class="ic">🧵</span><div><h4>Vải cao cấp, bền màu</h4><p>Thấm hút mồ hôi, co giãn 4 chiều</p></div></div>
-  </div>
-</div>
+                    <tr>
+                        <td>Sinh viên học ngành:</td>
+                        <td>
+                            <select>
+                                <option>Ngành CNTT</option>
+<option>Tự động hóa</option>
+                                <option>An ninh mạng</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td> 
+                            <input type="text" size="35">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lớp:</td>
+                        <td>
+                            <input type="text" size="20">
+                        </td>
+                    </tr>
+                    
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo" style="color:#fff; margin-bottom:12px;"><span class="mark">SP</span>ÁO ĐẤU</div>
-        <p style="max-width:260px; line-height:1.6;">Xưởng may đồng phục thể thao thiết kế riêng: bóng đá, bóng chuyền, cầu lông,...</p>
-      </div>
-      <div>
-        <h4>Danh mục</h4>
-        <ul>
-          <li><a href="#">Áo bóng đá</a></li>
-          <li><a href="#">Áo bóng chuyền</a></li>
-          <li><a href="#">Áo pickleball</a></li>
-          <li><a href="#">Áo cầu lông</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Hỗ trợ</h4>
-        <ul>
-          <li><a href="#">Hướng dẫn đặt hàng</a></li>
-          <li><a href="#">Chính sách đổi trả</a></li>
-          <li><a href="#">Bảng size</a></li>
-          <li><a href="#">Liên hệ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Liên hệ</h4>
-        <ul>
-          <li>0123 456 789</li>
-          <li>hotro@sandau.vn</li>
-          <li>8:00 – 21:00 mỗi ngày</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ÁO ĐẤU. Tất cả các quyền được bảo lưu.</span>
-      <span>Xưởng may đồng phục thể thao thiết kế riêng</span>
-    </div>
-  </div>
-</footer>
+                    <tr>
+                        <td>Tải ảnh đại diện:</td>
+                        <td>
+                            <input type="file">
+                        </td>
+                    </tr>
 
-<div class="floating">
-  <a class="fb" href="#" title="Facebook">f</a>
-  <a class="zalo" href="#" title="Zalo">Z</a>
-  <a class="phone" href="#" title="Gọi ngay">📞</a>
-</div>
+                    <fieldset>
+    <legend>Nội dung khảo sát</legend>
+
+    <p>Bạn đánh giá chất lượng giảng dạy như thế nào?</p>
+
+    <input type="radio" name="danhgia"> Rất tốt
+    <input type="radio" name="danhgia"> Tốt
+    <input type="radio" name="danhgia"> Bình thường
+    <input type="radio" name="danhgia"> Chưa tốt
+
+    <p>Bạn có hài lòng với chương trình học không?</p>
+
+    <input type="radio" name="hailong"> Có
+    <input type="radio" name="hailong"> Không
+
+    <p>Ý kiến đóng góp:</p>
+
+    <textarea rows="5" cols="50"></textarea>
+</fieldset>
+
+                </table>
+
+            </fieldset>
+
+        </td>
+    </tr>
+    <tr bgcolor="lightblue">
+        <td colspan="2" align="center">
+            <input type="submit" value="Gửi">
+            <input type="reset" value="Nhập lại">
+        </td>
+    </tr>
+
+</table>
 
 </body>
 </html>
