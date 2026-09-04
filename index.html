@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Khảo sát sinh viên</title>
+</head>
+
+<body>
+
+<table border="1" width="700" align="center" cellspacing="0">
+<body bgcolor="lavender"></body>
+    <!-- Tiêu đề -->
+    <tr bgcolor="lightblue">
+        <td colspan="2" align="center">
+            <h2>Khảo sát sinh viên</h2>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+
+            <fieldset>
+                <legend>Thông tin cá nhân</legend>
+
+                <table width="100%">
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td>
+                            <input type="text" size="35">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Mã SV:</td>
+                        <td>
+                            <input type="text" size="25">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="email" size="35">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>
+                            <input type="text" size="25">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td>
+                            <input type="date">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td>
+                            <input type="radio" name="gt"> Nam
+                            <input type="radio" name="gt"> Nữ
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sở thích:</td>
+                        <td>
+                            <input type="checkbox"> Đọc sách
+                            <input type="checkbox"> Chơi game
+                            <input type="checkbox" > Du lịch
+                            <input type="checkbox" > Khác
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Mật khẩu:</td>
+                        <td>
+                            <input type="password" size="25">
+                        </td>
+                    </tr>
+                </table>
+
+            </fieldset>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+
+            <fieldset>
+                <legend>Sinh viên</legend>
+
+                <table width="100%">
+
+                    <tr>
+                        <td>Sinh viên học ngành:</td>
+                        <td>
+                            <select>
+                                <option>Ngành CNTT</option>
+<option>Tự động hóa</option>
+                                <option>An ninh mạng</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td> 
+                            <input type="text" size="35">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lớp:</td>
+                        <td>
+                            <input type="text" size="20">
+                        </td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td>Tải ảnh đại diện:</td>
+                        <td>
+                            <input type="file">
+                        </td>
+                    </tr>
+
+                    <fieldset>
+    <legend>Nội dung khảo sát</legend>
+
+    <p>Bạn đánh giá chất lượng giảng dạy như thế nào?</p>
+
+    <input type="radio" name="danhgia"> Rất tốt
+    <input type="radio" name="danhgia"> Tốt
+    <input type="radio" name="danhgia"> Bình thường
+    <input type="radio" name="danhgia"> Chưa tốt
+
+    <p>Bạn có hài lòng với chương trình học không?</p>
+
+    <input type="radio" name="hailong"> Có
+    <input type="radio" name="hailong"> Không
+
+    <p>Ý kiến đóng góp:</p>
+
+    <textarea rows="5" cols="50"></textarea>
+</fieldset>
+
+                </table>
+
+            </fieldset>
+
+        </td>
+    </tr>
+    <tr bgcolor="lightblue">
+        <td colspan="2" align="center">
+            <input type="submit" value="Gửi">
+            <input type="reset" value="Nhập lại">
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
