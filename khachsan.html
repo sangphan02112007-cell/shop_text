@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt phòng khách sạn</title>
+</head>
+<body>
+    <table border="2" width="800" align="center" bgcolor="#F5E6E6">
+        <tr>
+            <td colspan="2" align="center">
+                <font color="blue" size="5">
+                    <b>Đặt phòng khách sạn</b>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="300">
+                <font color="blue" size="4">
+                    <b>Họ và tên</b>
+                </font>
+            </td>
+            <td>
+                <input type="text" name="hoten" value="Nguyễn Hoàng Anh" size="50">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <font color="blue" size="4">
+                  <b>Giới Tính</b>
+                </font>
+            </td>
+            <td>
+                <input type="radio" name="gioitinh" value="Nam"> <font color="blue"><b>Nam</b></font>
+                <input type="radio" name="gioitinh" value="Nu"> <font color="blue"><b>Nữ</b></font>
+                <input type="radio" name="gioitinh" value="Khac"> <font color="blue"><b>Khác</b></ font>
+            </td>
+        </tr>
+        <tr>
+
+<td>
+<font color="blue" size="4">
+<b>Địa chi</b>
+</font>
+</td>
+   <td>
+       <input type="text" name="diachi" value="Phan Bội Châu - Hồ Chí Minh" size="45">
+   </td>
+</tr>
+<tr>
+   <td>
+      <font color="blue" size="4">
+      <b>Số điên thoai</b>
+    </font>
+    </td>
+    <td>
+     <input type="tel" name="sdt" value="0967989380" size="30">
+    </td>
+</tr>
+<tr>
+    <td>
+        <font color="blue" size="4"> <b>Loại phòng</b></font>
+    </td>
+    <td>
+        <input type="checkbox" name="phongdon"value="Phong don">
+        <font color="blue" size="4">
+           <b>Phòng đơn</b>
+        </font>
+                <input type="checkbox" name="phongdoi" value="Phong doi">
+            <font color="blue" size="4">
+                <b>Phòng đôi</b>
+           </font>
+                <input type="checkbox" name="phongvip" value="Phong VIP">
+            <font color="blue" size="4">
+                <b>Phòng VIP</b>
+            </font>
+          </td>
+       </tr>
+<tr>
+   <td>
+      <font color="blue" size="4"> <b>Chọn khách sạn</b></font>
+    </td>
+   <td>
+    <select name="khachsan">
+        <option value="3sao"> Khách sạn 3 sao</option>
+        <option value="4sao">Khách sạn 4 sao</option>
+        <option value="5sao" >Khách sạn 5 sao</option>
+    </select>
+  </td> 
+</tr>
+<tr>
+    <td colspan="2">
+    <fieldset>
+     <legend>
+      <font color="#CC6633" size="4"> <i><b>Ngày đặt</b></i></font>
+   </legend>
+      <font color="blue" size="4"> <b>Ngày đến</b></font>
+
+     <input type="date" name="ngayden">
+     &nbsp;&nbsp;
+     <font color="blue" size="4"> <b>Ngày đi</b></font>
+     <input type="date" name="ngaydi"></fieldset>
+      </td> 
+    </tr>
+    </table>
+</body>
+</html>
